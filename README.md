@@ -1,5 +1,7 @@
 # Spotiapp
 
+This is an Angular 2 app example made for TEST purposes. It's a simple app where to listen music from an artist using the Spotify Web API (without authentication).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
 
 ## Development server

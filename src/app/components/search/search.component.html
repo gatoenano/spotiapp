@@ -1,0 +1,26 @@
+<div class="container mt-3 mt-sm-5">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="mb-3">{{term}}</h1>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="term">Artist search</label>
+      <input [(ngModel)]="term"
+        (keyup)="searchByArtist()"
+        class="form-control" type="text" name="term" placeholder="search by artist">
+    </div>
+    <hr />
+    <div class="col-md-9 pt-md-4 mt-md-2 mb-5">
+      <div class="row">
+        <div
+          [routerLink]="['/artist', artist.id]"
+          *ngFor="let artist of _spotifyService.artists"
+          class="col-md-3 animated fadeIn pointer">
+          <img [src]="artist.images | checkImg:1" alt="{{artist.name}}" class="img-fluid img-thumbnail">
+          <p>{{artist.name}}</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div *ngIf="artist"
+  class="container mt-3 mt-md-5 animated fadeIn">
+  <div class="row">
+    <div class="col-md-3 mb-4 text-center">
+      <img [src]="artist.images | checkImg:2" class="img-circle mb-2 mb-md-3" alt="{{artist.name}}">
+      <h3 class="mb-2 mb-3">{{artist.name}}</h3>
+      <div class="d-flex justify-content-around">
+        <p class="d-inline"><small>Popularity: {{artist.popularity}}%</small></p>
+        <p class="d-inline"><small>Followers: {{artist.followers.total | number}}</small></p>
+      </div>
+      <button [routerLink]="['/search']"
+        type="button" class="btn btn-success mb-3 pointer">Back</button>
+        <a [href]="artist.external_urls?.spotify" class="btn btn-success mb-3">Open with Spotify</a>
+    </div>
+    <div class="col-md-9 mb-5">
+      <div class="d-flex flex-row flex-wrap justify-content-center">
+        <div *ngFor="let track of _spotifyService.artistTopTracks"
+          class="mx-0 mx-md-3 mb-2 mb-md-3 p-0">
+            <iframe [src]="track.uri | secureExternalUrl:'https://embed.spotify.com/?uri='" width="285" height="80" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
